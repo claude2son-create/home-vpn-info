@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Домашний VPN</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&family=Nunito+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: тёмный блок-заголовок, затем три коротких полосы — схема, надёжность, цена */
+:root{
+  --bg:#F6F5F1; --band:#EAE7DF; --fg:#14213D; --soft:#4A5568; --accent:#C9601C; --hero:#14213D; --hero-fg:#F6F5F1; --hero-soft:#C9D3E3; --card:#FBFAF7;
+  --display:'Rubik',Arial,sans-serif; --text:'Nunito Sans',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#10192E;--band:#16223D;--fg:#EEF1F6;--soft:#B4BFD2;--accent:#F0954F;--hero:#0B1222;--hero-fg:#F6F5F1;--hero-soft:#C9D3E3;--card:#1C2A49;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10192E;--band:#16223D;--fg:#EEF1F6;--soft:#B4BFD2;--accent:#F0954F;--hero:#0B1222;--hero-fg:#F6F5F1;--hero-soft:#C9D3E3;--card:#1C2A49;color-scheme:dark}
+body{margin:0;-webkit-text-size-adjust:100%;background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--text);}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;line-height:1.15}
+p{margin:0}
+.eyebrow{font:600 13px/1 var(--text);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.hero{background:var(--hero);color:var(--hero-fg);margin-top:calc(-1 * env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px)}
+.hero .wrap{padding-block:72px 64px;display:flex;flex-direction:column;gap:20px}
+.hero h1{font-size:clamp(34px,6vw,58px);font-weight:700;max-width:16ch}
+.hero p.lead{font-size:clamp(18px,2.2vw,21px);color:var(--hero-soft);max-width:56ch}
+.hero .eyebrow{color:#F0954F}
+section .wrap{padding-block:56px;display:flex;flex-direction:column;gap:28px}
+section.band{background:var(--band)}
+h2{font-size:clamp(26px,3.6vw,36px);font-weight:700}
+.chain{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch}
+.step{background:var(--card);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.step.main{background:var(--fg);color:var(--bg)}
+.step.main p{color:var(--bg);opacity:.8}
+.step h3{font-size:19px;font-weight:500}
+.step p{font-size:15px;color:var(--soft)}
+.arr{align-self:center;color:var(--accent);font:700 22px var(--display)}
+.note{color:var(--soft);max-width:60ch}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 40px}
+.item{display:flex;flex-direction:column;gap:4px;padding-top:14px;border-top:2px solid var(--accent)}
+.item h3{font-size:19px;font-weight:500}
+.item p{color:var(--soft);font-size:16px}
+.price{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.tier{background:var(--card);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.tier .num{font:700 clamp(38px,5.5vw,52px)/1 var(--display);font-variant-numeric:tabular-nums}
+.tier .num small{font-size:.45em;font-weight:500;color:var(--soft)}
+.tier ul{margin:0;padding-left:20px;color:var(--soft)}
+.tier.first{outline:2px solid var(--accent);outline-offset:-2px}
+.why{font-size:clamp(18px,2.2vw,21px);max-width:60ch}
+footer .wrap{padding-block:28px 40px;color:var(--soft);font-size:14px}
+@media (max-width:720px){
+  .chain{grid-template-columns:1fr}
+  .arr{transform:rotate(90deg);justify-self:center}
+  .list,.price{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <p class="eyebrow">Домашний VPN под ключ</p>
+  <h1>Свободный интернет для всей семьи</h1>
+  <p class="lead">Один роутер дома — и телевизор, ноутбуки, приставки работают без приложений и настроек. За системой мы следим сами, каждый день.</p>
+</div></header>
+
+<section><div class="wrap">
+  <p class="eyebrow">Как устроено</p>
+  <h2>Трафик идёт по нашей собственной цепочке</h2>
+  <div class="chain">
+    <div class="step"><h3>Ваш дом</h3><p>Наш роутер. Все устройства в сети защищены автоматически.</p></div>
+    <div class="arr" aria-hidden="true">→</div>
+    <div class="step"><h3>Мост в Москве</h3><p>Для провайдера — обычное соединение внутри России.</p></div>
+    <div class="arr" aria-hidden="true">→</div>
+    <div class="step main"><h3>Свой сервер в Европе</h3><p>Выход в интернет. Сервер наш, не общий с тысячами чужих людей.</p></div>
+  </div>
+  <p class="note">Российские сайты, банки и госуслуги открываются напрямую, без VPN.</p>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <p class="eyebrow">Почему надёжно</p>
+  <h2>Несколько путей и постоянный контроль</h2>
+  <div class="list">
+    <div class="item"><h3>Три моста и резервный сервер</h3><p>Закрыли один путь — роутер сам переходит на другой.</p></div>
+    <div class="item"><h3>Контроль круглосуточно</h3><p>Автопроверки каналов и скорости, ежечасно — из сетей МТС, Ростелекома и Билайна.</p></div>
+    <div class="item"><h3>Без утечек</h3><p>Если VPN недоступен, трафик не уходит в интернет мимо защиты.</p></div>
+    <div class="item"><h3>Удалённая поддержка</h3><p>Настраиваем и чиним удалённо, без повторного выезда.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">Стоимость</p>
+  <h2>Одна цена за всё, без скрытых платежей</h2>
+  <div class="price">
+    <div class="tier first">
+      <h3>Подключение под ключ</h3>
+      <p class="num">60 000 <small>₽</small></p>
+      <ul><li>роутер</li><li>все серверы и мосты</li><li>настройка</li><li>выезд и установка на месте</li><li>первый месяц работы</li></ul>
+    </div>
+    <div class="tier">
+      <h3>Со второго месяца</h3>
+      <p class="num">5 000 <small>₽/мес</small></p>
+      <ul><li>работа серверов и мостов</li><li>резервные пути</li><li>круглосуточный контроль</li><li>поддержка</li></ul>
+    </div>
+  </div>
+  <p class="why">Вы платите не за приложение, а за собственную инфраструктуру: свои серверы, мосты в Москве, резерв и человека, который следит за всем этим каждый день.</p>
+</div></section>
+
+<footer><div class="wrap"><p>Домашний VPN · подключение через нашего партнёра</p></div></footer>
+</body>
+</html>
